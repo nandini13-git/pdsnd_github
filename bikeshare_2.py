@@ -29,6 +29,7 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input("Which month would you like to look at: january, february, march...june or all? ").lower()
+        #'.lower()' accounts for inputs that are entered in capital letters
         if month in ('january','february','march','april','may','june', 'all'):
             break
         else:
@@ -164,6 +165,7 @@ def user_stats(df, city):
         most_recent_date = df['Birth Year'].max()
         most_common_year = df['Birth Year'].mode()[0]
         print("The earliest birth year is " + str(least_recent_date) + ", the most recent birth year is " + str(most_recent_date) + " and the most common year of birth is " + str(most_common_year) + ".")
+
 
 
     print("\nThis took %s seconds. \n" % (time.time() - start_time))
