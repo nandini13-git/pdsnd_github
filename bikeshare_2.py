@@ -98,7 +98,7 @@ def time_stats(df):
     print("The most popular month is " + str(popular_month) + ".")
     print("The most popular day of the week is " + str(popular_day_of_week) + ".")
     print("The most popular hour is " + str(popular_hour) + ".")
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds. \n" % (time.time() - start_time))
     print('-'*40)
 
 
@@ -121,7 +121,7 @@ def station_stats(df):
     print("The most commonly used start station is {}.".format(most_common_start_station))
     print("The most commonly used end station is {}.".format(most_common_end_station))
     print("The most frequent combination of start station and end station trip is \n\n" + str(most_frequent_combination) + ".")
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds. \n" % (time.time() - start_time))
     print('-'*40)
 
 
@@ -139,7 +139,7 @@ def trip_duration_stats(df):
 
     print("The total travel time is " + str(total_travel_time) + ".")
     print("The mean travel time is " + str(mean_travel_time) + ".")
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds. \n" % (time.time() - start_time))
     print('-'*40)
 
 
@@ -166,7 +166,7 @@ def user_stats(df, city):
         print("The earliest birth year is " + str(least_recent_date) + ", the most recent birth year is " + str(most_recent_date) + " and the most common year of birth is " + str(most_common_year) + ".")
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds. \n" % (time.time() - start_time))
     print('-'*40)
 
 def raw_data_disp(df):
