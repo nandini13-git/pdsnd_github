@@ -4,7 +4,7 @@
 ### Bikeshare
 
 
-### Calculates statistics of bikeshare rides for a given city, month and day
+### Calculates time, station, duration, and user statistics of bikeshare rides for a given city, month and day
 
 
 ### bikeshare_2.py
