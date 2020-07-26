@@ -24,11 +24,12 @@ def get_filters():
             continue
         else:
             print("Ok!")
-            break 
+            break
 
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input("Which month would you like to look at: january, february, march...june or all? ").lower()
+        #'.lower()' accounts for inputs that are entered in capital letters
         if month in ('january','february','march','april','may','june', 'all'):
             break
         else:
@@ -69,8 +70,8 @@ def load_data(city, month, day):
     df['day_of_week'] = df['Start Time'].dt.dayofweek
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1 
-        df = df[df['month'] == month] 
+        month = months.index(month) + 1
+        df = df[df['month'] == month]
     if day != 'all':
         days = ['1', '2', '3', '4', '5', '6', '7']
         day = days.index(day) + 1
@@ -87,14 +88,14 @@ def time_stats(df):
 
     # TO DO: display the most common month
     popular_month = df['month'].mode()[0]
-       
+
     # TO DO: display the most common day of week
     popular_day_of_week = df['day_of_week'].mode()[0]
-    
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
-    
+
     print("The most popular month is " + str(popular_month) + ".")
     print("The most popular day of the week is " + str(popular_day_of_week) + ".")
     print("The most popular hour is " + str(popular_hour) + ".")
@@ -112,10 +113,10 @@ def station_stats(df):
 
     # TO DO: display most commonly used start station
     most_common_start_station = df['Start Station'].mode()[0]
-    
+
     # TO DO: display most commonly used end station
     most_common_end_station = df['End Station'].mode()[0]
-    
+
     # TO DO: display most frequent combination of start station and end station trip
     most_frequent_combination = df.groupby(['Start Station','End Station']).size().nlargest()
     print("The most commonly used start station is " + most_common_start_station + ".")
@@ -133,7 +134,7 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    
+
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
 
@@ -150,7 +151,7 @@ def user_stats(df, city):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_type = df['User Type'].value_counts()  
+    user_type = df['User Type'].value_counts()
     print("The number of user types is \n" + str(user_type))
     # TO DO: Display counts of gender
     if city == "new york city" or city == "chicago":
@@ -158,14 +159,14 @@ def user_stats(df, city):
         print("The counts of gender is " + str(count_of_gender) + ".")
     # TO DO: Display earliest, most recent, and most common year of birth
     if city == "new york city" or city == "chicago":
-        
+
         df['Birth Year'] = pd.to_datetime(df['Birth Year'])
         least_recent_date = df['Birth Year'].min()
         most_recent_date = df['Birth Year'].max()
         most_common_year = df['Birth Year'].mode()[0]
         print("The earliest birth year is " + str(least_recent_date) + ", the most recent birth year is " + str(most_recent_date) + " and the most common year of birth is " + str(most_common_year) + ".")
-    
-    
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -179,10 +180,10 @@ def raw_data_disp(df):
             start += 5
         elif user_input.lower() != 'no':
             print('Incorrect input. Please try again.')
-            
-                     
+
+
         else:
-            break    
+            break
 
 def main():
     while True:
@@ -194,12 +195,12 @@ def main():
         trip_duration_stats(df)
         user_stats(df, city)
         raw_data_disp(df)
-        
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-        
-   
+
+
 
 if __name__ == "__main__":
 	main()
